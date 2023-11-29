@@ -1,0 +1,62 @@
+<%# 201935292 염승현 %>
+<table class="table table-bordered">
+  <% if (uv=='u'){%>
+    <tr>
+      <td style="vertical-align: top;">
+        <img src="<%=mer[0].image %>" style="width:200px;height:200px;display:block;margin-top:10px;">
+      </td>
+      <td>
+        <div><%=mer[0].name %></div>
+      </td>
+      <td>
+        <div><%=mer[0].price %></div>
+      </td>
+      <td>
+        <div><%=mer[0].brand %></div>
+      </td>
+
+      <% if(logined=='yes'){%>
+        <td><form method="post" action="/purchase/cart_process">
+          <input type="hidden" name="mer_id" value="<%=mer[0].mer_id%>"/>
+            <div id="buttonDiv"><button type='button'class="btn btn-info me-md-2" onclick="location.href='/shop/detail/<%=mer[0].mer_id%>/v'">구매</button></div>
+             <div><button type='submit'class="btn btn-info me-md-2" >장바구니</button></div>
+          </td>
+    <%  }%>
+      </form>
+    </tr>
+    <%}
+    else if(uv=='v'){%>
+      <tr>
+        <td style="vertical-align: top;">
+          <img src="<%=mer[0].image %>" style="width:200px;height:200px;display:block;margin-top:10px;">
+        </td>
+        <td>
+          <div><%=mer[0].name %></div>
+        </td>
+        <td>
+          <div><%=mer[0].price %></div>
+        </td>
+        <td>
+          <div><%=mer[0].brand %></div>
+        </td>
+  
+        <% if(logined=='yes'){%>
+          <form method="post" action="/purchase/usercreate_process">
+            <input type="hidden" name="mer_id" value="<%=mer[0].mer_id%>"/>
+            <input type="hidden" name="price" value="<%=mer[0].price%>"/>
+        <td>
+           수량: <input name="qty" type="number" id="quantityInput" value="1"></td>
+          <td>
+              <div id="buttonDiv"><button type='submit'class="btn btn-info me-md-2">결제</button></div></form>
+              <form method="post" action="/purchase/cart_process">
+                <input type="hidden" name="mer_id" value="<%=mer[0].mer_id%>"/>
+                 <div><button type='submit'class="btn btn-info me-md-2">장바구니</button></div></form>
+            </td>
+      <%  }%>
+        
+      </tr>
+
+   <% }%>
+  </table>
+
+  

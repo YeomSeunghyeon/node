@@ -1,0 +1,40 @@
+<%# 201935292 염승현 %>
+<%if(ic=='u'){%>
+        <h2>장바구니 수정</h2>
+        <div class="container">	
+        <form action="/purchase/cartupdate_process" method="post" >
+            <input type = "hidden" name="cart_id" value = "<%=cart[0].cart_id%>"/>
+            <div class="mb-3">
+                <label class="form-label" for="id">담은날</label> 
+                <input class="form-control" type="text" name="date" value='<%=cart[0].date%>'style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">사용자</label> 
+                <input class="form-control" type="text" name="loginid" value='<%=cart[0].loginid%>' style="width:300px;" />
+            </div>
+            <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      </form>
+    </div>
+      <%}
+      else if(ic=='c'){%>
+        <h2>장바구니 생성</h2>
+        <div class="container">	
+        <form action="/purchase/cartcreate_process" method="post" >
+            <div class="mb-3">
+                <label class="form-label" for="id">mer_id</label> 
+                <input class="form-control" type="text" name="mer_id" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">담은날</label> 
+                <input class="form-control" type="text" name="date" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">사용자</label> 
+                <input class="form-control" type="text" name="loginid" value="<%=id%>" style="width:300px;" />
+            </div>
+            <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      </form>
+        </div>
+    <% } %>
+    
+    

@@ -1,0 +1,37 @@
+<%# 201935292 염승현 %>
+<table class="table table-bordered border-primary">
+    <thead><td>대분류</td><td>대분류명</td><td>소분류</td><td>소분류명</td><td>시작일</td><td>종료일</td>
+       
+    </thead> 
+    <tr>
+    <% if(cou==='v'){
+     var i=0
+    while(i < codes.length)
+    { 
+        %>
+  <tr> <td><%=codes[i].main_id %></td><td><%=codes[i].sub_id %></td><td></td>
+        <td><%=codes[i].main_name %></td>
+        <td><%=codes[i].sub_name %></td><td><%=codes[i].start %></td>
+        <td><%=codes[i].end %></td></tr> <% i +=1}}
+    
+    
+    
+
+      else{
+        var i=0
+        while(i < codes.length)
+        { 
+            %>
+            <tr><td><%=codes[i].main_id %></td><td><%=codes[i].sub_id %></td>
+            <td><%=codes[i].main_name %></td>
+            <td><%=codes[i].sub_name %></td><td><%=codes[i].start %></td>
+            <td><%=codes[i].end %></td>
+            <td><a href="/code/update/<%=codes[i].main_id%>/<%=codes[i].sub_id%>">
+                수정하기</a></td>
+            <td><a href="/code/delete/<%=codes[i].main_id%>/<%=codes[i].sub_id%>" onclick='if(confirm("정말로 삭제하시겠습니까?")==false){return false}'>삭제하기</a></td></tr> <% i +=1}} %>
+            
+
+    
+    
+
+</table>

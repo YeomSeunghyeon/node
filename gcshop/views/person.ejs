@@ -1,0 +1,31 @@
+<%# 201935292 염승현 %>
+<table class="table table-bordered border-primary">
+    <thead><td>아이디</td><td>비밀번호</td><td>이름</td><td>주소</td>
+        <td>번호</td><td>생일</td><td>클래스</td>  
+
+    </thead>
+    <% if(cou==='v'){
+        var i=0
+       while(i < persons.length)
+       { 
+           %>
+     <tr> <td><%=persons[i].loginid %></td><td><%=persons[i].password %></td>
+           <td><%=persons[i].name %></td>
+           <td><%=persons[i].address %></td><td><%=persons[i].tel %></td>
+           <td><%=persons[i].birth %></td><td><%=persons[i].class %></td></tr> <% i +=1}}
+       
+       
+         else if(cou=='u'){
+           var i=0
+           while(i < persons.length)
+           { 
+               %>
+               <tr> <td><%=persons[i].loginid %></td><td><%=persons[i].password %></td>
+                <td><%=persons[i].name %></td>
+                <td><%=persons[i].address %></td><td><%=persons[i].tel %></td>
+                <td><%=persons[i].birth %></td><td><%=persons[i].class %></td> 
+               <td><a href="/person/update/<%=persons[i].loginid%>">
+                   수정하기</a></td>
+               <td><a href="/person/delete/<%=persons[i].loginid%>" onclick='if(confirm("정말로 삭제하시겠습니까?")==false){return false}'>삭제하기</a></td></tr> <% i +=1}} %>
+
+ </table>

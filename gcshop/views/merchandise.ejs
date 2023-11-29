@@ -1,0 +1,48 @@
+<%# 201935292 염승현 %>
+<table class="table table-bordered ">
+
+    <% if (mers.length===0){ %>
+        <td>자료없음</td>
+            <% }  
+      else{ %>
+        <tr>
+    <% if(cor=='1'||cor=='2'||cor=='3'||cor=='4'||cor=='5'||cor=='6'||cor=='7'||cor=='8'){ 
+      var i=0
+      while(i < mer.length){ %>
+   <tr><td><a href="/shop/detail/<%=mer[i].mer_id%>/u"><img src="<%=mer[i].image %>" style="width:100px;height:100px;display:block;margin-top:10px;"></a></td><td><%=mer[i].name %></td><td><%=mer[i].price %></td>
+           <td><%=mer[i].brand%></td></tr>
+        <% i +=1} } 
+
+
+      else if (cor=='v'|| cor=='all'){ 
+        var i=0
+           while(i < mers.length){ %>
+        <tr><td><a href="/shop/detail/<%=mers[i].mer_id%>/u"><img src="<%=mers[i].image %>" style="width:100px;height:100px;display:block;margin-top:10px;"></a></td><td><%=mers[i].name %></td><td><%=mers[i].price %></td>
+                <td><%=mers[i].brand%></td></tr>
+             <% i +=1} } 
+
+             
+        else if (cor=='u'){ 
+        var i=0
+           while(i < mers.length){ %>
+     <tr><td><a href="/shop/detail/<%=mers[i].mer_id%>/u"><img src="<%=mers[i].image %>" style="width:100px;height:100px;display:block;margin-top:10px;"></a></td><td><%=mers[i].name %></td><td><%=mers[i].price %></td>
+               <td><%=mers[i].brand%></td> 
+                <td><a href="/merchandise/update/<%=mers[i].mer_id%>">
+                수정하기</a></td>
+            <td><a href="/merchandise/delete/<%=mers[i].mer_id%>" onclick='if(confirm("정말로 삭제하시겠습니까?")==false){return false}'>삭제하기</a></td></tr>
+           <% i +=1} } 
+           else if(cor=='s'){
+            var i=0
+            while(i < mers.length){%>
+              <tr><td><a href="/shop/detail/<%=mers[i].mer_id%>/u"><img src="<%=mers[i].image %>" style="width:100px;height:100px;display:block;margin-top:10px;"></a></td><td><%=mers[i].name %></td><td><%=mers[i].price %></td>
+                <td><%=mers[i].brand%></td></tr>
+                <% i +=1  }}%>
+        </tr>
+    <% } %>
+
+        
+       
+       
+    
+
+</table>

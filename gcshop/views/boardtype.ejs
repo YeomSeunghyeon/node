@@ -1,0 +1,13 @@
+<%# 201935292 염승현 %>
+<table class="table table-bordered ">
+<tr><td>제목</td><td>페이지당 글 수</td><td>설명</td><td>일반 사용자 쓰기 가능여부</td><td>댓글 가능여부</td><td></td><td></td></tr>
+<% var i=0
+while(i < bd.length){ %>
+<tr><td><%=bd[i].title %></td><td><%=bd[i].numPerPage %></td>
+     <td><%=bd[i].description%></td> 
+     <td><%=bd[i].write_YN%></td> <td><%=bd[i].re_YN%></td>
+     <td><a href="update/<%=bd[i].type_id%>">수정</a></td>
+     <td><a href="delete/<%=bd[i].type_id%>" onclick='if(confirm("정말로 삭제하시겠습니까?")==false){return false}'>삭제</a></td></tr>
+  <% i +=1}%>
+
+</table>

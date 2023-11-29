@@ -1,0 +1,49 @@
+<%# 201935292 염승현 %>
+<%if(ck=='u'){%>
+<table class="table table-bordered">
+    <tr><td>상품</td><td>상품명</td><td>단가</td><td>구매량</td><td>총금액</td><td>구매일</td><td>취소여부</td>
+    <%
+var i=0
+while(i < purchase.length){ 
+  if(purchase[i].loginid==id || class1=='01'){ %>
+<tr><td><img src="<%=purchase[i].image %>" style="width:100px;height:100px;display:block;margin-top:10px;"></td>
+    <td><%=purchase[i].name %></td><td><%=purchase[i].price %></td>
+    <td><%=purchase[i].qty %></td><td><%=purchase[i].total %></td><td><%=purchase[i].date %></td>
+  <% if(purchase[i].cancel=='N'){ %>
+    <form method="post" action="/purchase/purchase_process">
+    <input type="hidden" name="purchase_id" value="<%=purchase[i].purchase_id%>"/>
+    <td><button type="submit">구매취소</button></td> </form><%}
+ 
+    else if(purchase[i].cancel=='Y'){%>
+        <td>취소된상품</td>
+ <%  }%> </tr> <% }
+     i +=1}  %>
+
+</table>
+<%}
+else if( ck=='v'){%>
+  <table class="table table-bordered">
+    <tr><td>상품</td><td>상품명</td><td>단가</td><td>구매량</td><td>총금액</td><td>구매일</td><td>취소여부</td>
+    <%
+var i=0
+while(i < purchase.length){ %>
+<tr><td><img src="<%=purchase[i].image %>" style="width:100px;height:100px;display:block;margin-top:10px;"></td>
+    <td><%=purchase[i].name %></td><td><%=purchase[i].price %></td>
+    <td><%=purchase[i].qty %></td><td><%=purchase[i].total %></td><td><%=purchase[i].date %></td>
+  <% if(purchase[i].cancel=='N'){ %>
+    <form method="post" action="/purchase/purchase_process">
+    <input type="hidden" name="purchase_id" value="<%=purchase[i].purchase_id%>"/>
+    <td><button type="submit">구매취소</button></td> </form><%}
+ 
+    else if(purchase[i].cancel=='Y'){%>
+        <td>취소된상품</td>
+ <%  }%> 
+ <td><button class="btn btn-outline-primary btn-sm float-end" type="submit" onclick="location.href='/purchase/purchaseupdate/<%=purchase[i].purchase_id%>'">수정하기</button></td>
+ <form method="post" action="/purchase/purchasedelete/<%=purchase[i].purchase_id%>">
+   <td><button class="btn btn-outline-primary btn-sm float-end" type="submit">삭제하기</button></td></form></tr> 
+   <% 
+     i +=1}  %>
+
+</table>
+
+<%}%>

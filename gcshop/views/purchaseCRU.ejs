@@ -1,0 +1,60 @@
+<%# 201935292 염승현 %>
+    <% if (ic=='u'){%>
+        <h2>구매내용 수정</h2>
+        <div class="container">	
+        <form action="/purchase/purchaseupdate_process" method="post" >
+            <input type = "hidden" name="purchase_id" value = "<%=purchase[0].purchase_id%>"/>
+            <div class="mb-3">
+                <label class="form-label" for="id">구매량</label> 
+                <input class="form-control" type="text" name="qty" value='<%=purchase[0].qty%>'style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">총액</label> 
+                <input class="form-control" type="text" name="total" value='<%=purchase[0].total%>' style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">구매일</label> 
+                <input class="form-control" type="text" name="date" value='<%=purchase[0].date%>' style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">구매일</label> 
+                <input class="form-control" type="text" name="cancel" value='<%=purchase[0].cancel%>' style="width:300px;" />
+            </div>
+            <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      </form>
+    </div>
+      <%}
+
+       if (ic=='c'){%>
+        <h2>구매내용 생성</h2>
+        <div class="container">	
+        <form action="/purchase/purchasecreate_process" method="post" >
+            <div class="mb-3">
+                <label class="form-label" for="id">mer_id</label> 
+                <input class="form-control" type="text" name="mer_id" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">수량</label> 
+                <input class="form-control" type="number" name="qty" value="1" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">총액</label> 
+                <input class="form-control" type="text" name="total" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">담은날</label> 
+                <input class="form-control" type="text" name="date" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">취소여부(Y orN)</label> 
+                <input class="form-control" type="text" name="cancel" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">사용자</label> 
+                <input class="form-control" type="text" name="loginid" value="<%=id%>" style="width:300px;" />
+            </div>
+            <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      </form>
+    </div>
+      <%}%>
+   

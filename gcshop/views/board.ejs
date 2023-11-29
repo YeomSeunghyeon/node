@@ -1,0 +1,23 @@
+<%# 201935292 염승현 %>
+<p><%=boardtype[0].title%></p>
+<table class="table table-bordered ">
+<tr><td>작성자</td><td>제목</td><td>날짜</td></tr>
+<% var i=0
+while(i < board.length){ %>
+    <tr><td><%=name[i].name%></td><td><a href="/board/detail/<%=board[i].board_id%>/<%=board[i].p_id%>"><%=board[i].title%></a></td><td><%=board[i].date%></td></tr>
+    <% i +=1}%>
+    
+</table>
+<% if(logined=='YES'){
+    if(boardtype[0].write_YN=='Y' || class1=='01'){%>
+     <div style="float:right"><button type='button'class="btn btn-info me-md-2" onclick="location.href='/board/create/<%=boardtype[0].type_id%>'">글쓰기</button></div>
+ <%   }
+}  var j=1
+while(j <= totalPages){
+    if(j==pNum){ %>
+    <span style="font-weight:bold;"><%=j%></span>&nbsp;&nbsp;
+  <% } else { %>
+    <span><a href="/board/view/<%=btname%>/<%=j%>"><%=j%></a></span>&nbsp;&nbsp;
+   <%}
+    j++
+}%>

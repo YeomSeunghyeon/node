@@ -1,0 +1,73 @@
+<%# 201935292 염승현 %>
+<div class="container">	
+    <% if (ic=='i'){%>
+        <h2>계정생성</h2>
+        <form action="/person/create_process" method="post" >
+            <div class="mb-3">
+                <label class="form-label" for="id">아이디</label> 
+                <input class="form-control" type="text" name="loginid" placeholder="0000" style = "width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">비밀번호</label> 
+                <input class="form-control" type="text" name="password"  style = "width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">이름</label> 
+                <input class="form-control" type="text" name="name" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">주소</label> 
+                <input class="form-control" type="text" name="address" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">번호</label> 
+                <input class="form-control" type="text" name="tel"  style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">생일</label> 
+                <input class="form-control" type="text" name="birth" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">클래스</label> 
+                <input class="form-control" type="text" name="class" style="width:300px;" />
+            </div>
+            <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      </form>
+    <% }
+     else if (ic=='c'){%>
+        <h2>계정수정</h2>
+        <form action="/person/update_process" method="post" >
+            <div class="mb-3">
+                
+                <input class="form-control" type="hidden" name="loginid" value="<%=person[0].loginid%>" placeholder="0000" style = "width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">비밀번호</label> 
+                <input class="form-control" type="text" name="password" value="<%=person[0].password%>" style = "width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">이름</label> 
+                <input class="form-control" type="text" name="name"value="<%=person[0].name%>" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">주소</label> 
+                <input class="form-control" type="text" name="address"value="<%=person[0].address%>" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">번호</label> 
+                <input class="form-control" type="text" name="tel" value="<%=person[0].tel%>" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">생일</label> 
+                <input class="form-control" type="text" name="birth"value="<%=person[0].birth%>" style="width:300px;" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="id">클래스</label> 
+                <input class="form-control" type="text" name="class"value="<%=person[0].class%>" style="width:300px;" />
+            </div>
+            <button class="btn btn-outline-primary btn-sm" type="submit">입력</button>
+      </form>
+      <% }%>
+    
+    </div>
+    
